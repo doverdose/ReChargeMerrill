@@ -1,0 +1,17 @@
+{
+	"name": "recharge-merrill",
+	"version" : "0.0.1",
+	"author" : "Royce <royce.cheng@gmail.com>",
+	"description" : "A responsive, goal-oriented motivational interviewing web app.",
+	"dependencies" : {
+		"express" : "3.x",
+		"jade" : "0.33.x",
+		"everyauth" : "0.4.x",
+		"mongodb": "1.3.11",
+		"mongoose": "3.6.14",
+		"mocha" : "1.12.x",
+		"should" : "1.2.x",
+		"jQuery" : "1.7.x",	
+		"supertest" : "0.7.x"	
+	}
+}
