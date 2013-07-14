@@ -1,9 +1,11 @@
 #!/bin/node
 
 var express = require('express'),
+    routes = require('./routes'),
     fs = require('fs'),
     https = require('https'),
-    http = require('http');
+    http = require('http'),
+    path = require('path');
 
 var app = express();
 
@@ -38,8 +40,20 @@ https.createServer(options, app).listen(3000);
 console.log('HTTPS server listening on 3000');
 */
 
-app.get('/', function(req, res) {
-		res.send('Hello there');
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+app.use(require('less-middleware')({src: __dirname + '/public' }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+if('development' == app.get('env')) {
+		app.use(express.errorHandler());
+}
+
+app.get('/', routes.index);
 
 app.listen(8080);
