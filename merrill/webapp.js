@@ -2,6 +2,7 @@
 
 var express = require('express'),
     routes = require('./routes'),
+    patient = require('./routes/patient'),
     fs = require('fs'),
     https = require('https'),
     http = require('http'),
@@ -54,6 +55,12 @@ if('development' == app.get('env')) {
 		app.use(express.errorHandler());
 }
 
+
+app.get('/login', routes.login);
+app.post('/login', routes.login);
+app.get('/patient', patient.index);
 app.get('/', routes.index);
 
 app.listen(8080);
+
+console.log('Listening on port 8080');

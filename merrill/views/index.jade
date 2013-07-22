@@ -1,15 +1,21 @@
 extends layout
 
 block content
-  div.container-fluid
-    div.navbar.navbar-fixed-top
-      div.navbar-inner
-        a.brand ReCharge Health
-        ul.nav
-          li.active 
-            a(href='#') Home
-          li 
-            a(href='#') Register
-          li
-            a(href='#') Login
-    
+  div#wrap
+    div#main.container-fluid
+      div.navbar.navbar-fixed-top
+        div.navbar-inner
+          a.brand ReCharge Health
+          ul.nav
+            li.active 
+              a(href='/') Home
+            li 
+              a(href='#') Register
+            li
+              a(href='/login') Login
+      div.hero-unit
+        h1 Transforming the course of dialysis education.
+        p.register-button
+          a.btn.btn-primary.btn-large Join now!
+    footer.footer
+      p.copyright ReCharge Health 2013
